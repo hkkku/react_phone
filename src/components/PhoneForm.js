@@ -12,7 +12,7 @@ class PhoneForm extends Component {
       // input의 value를 name 값에 setState로 설정
     });
   };
-  // 이벤트 객체
+  // 이벤트 객체 조정
   render() {
     return (
       <div>
