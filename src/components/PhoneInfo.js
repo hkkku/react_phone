@@ -2,9 +2,18 @@ import React, { Component } from "react";
 
 class PhoneInfo extends Component {
   // 각 전화번호 정보를 보여주는 component
+
+  state = {
+    editing: false,
+  };
+
   handleRemove = () => {
     const { info, onRemove } = this.props;
     onRemove(info.id);
+  };
+
+  handleToggleEdit = () => {
+    this.setState({});
   };
 
   render() {
@@ -22,6 +31,7 @@ class PhoneInfo extends Component {
         </div>
         <div>{phone}</div>
         <button onClick={this.handleRemove}>Delete</button>
+        <button>edit</button>
       </div>
     );
   }

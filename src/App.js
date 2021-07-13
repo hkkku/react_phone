@@ -37,6 +37,23 @@ class App extends Component {
     });
   };
 
+  handleUpdate = (id, data) => {
+    const { information } = this.state;
+    // information에 대한 레퍼런스 가져오기
+    this.setState({
+      information: information.map((info) => {
+        if (info.id === id) {
+          return {
+            id,
+            ...data,
+            // name 과 phone 값이 들어감
+          };
+        }
+        return info;
+      }),
+    });
+  };
+
   handleRemove = (id) => {
     const { information } = this.state;
     this.setState({
