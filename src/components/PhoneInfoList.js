@@ -10,6 +10,9 @@ class PhoneInfoList extends Component {
     const { data, onRemove, onUpdate } = this.props;
     //data 값을 props로 받아온다.
 
+    // console.log("rendering List");
+    // data가 업데이트 될 때마다 기존 data도 다시 렌더링 되는 방식은 비효율
+
     // if (!data) return null;
     // Data가 없으면 하단 문을 실행하지 않는다.
     const list = data.map(

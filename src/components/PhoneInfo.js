@@ -9,6 +9,18 @@ class PhoneInfo extends Component {
     phone: "",
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // 최적화, 불변성 유지
+    // shouldComponentUpdate 가 없으면 단순 객체 하나를 확인하기 위해 배열 내부의 요소를 전부 확인해야 한다는 불편이 따름
+    // react 에서 객체/배열을 수정하려면 항상 불변성을 유지해야 한다.
+    // 언제나 return true에서 ->
+    if (this.state !== nextState) {
+      return true;
+    }
+    return this.props.info !== nextProps.info;
+    //render 함수를 호출하지 않는다
+  }
+
   handleRemove = () => {
     const { info, onRemove } = this.props;
     onRemove(info.id);
@@ -55,6 +67,9 @@ class PhoneInfo extends Component {
       padding: "8px",
       margin: "8px",
     };
+
+    // console.log(name);
+
     return (
       <div style={style}>
         {editing ? (
